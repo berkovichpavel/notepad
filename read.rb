@@ -14,9 +14,9 @@ OptionParser.new do |opt|
     puts opt
     exit
   end
-  opt.on('--type POST_TYPE', 'какой тип постов показывать (по умолчанию любой)') { |o| options[:type] = o } #
-  opt.on('--id POST_ID', 'если задан id — показываем подробно только этот пост') { |o| options[:id] = o } #
-  opt.on('--limit NUMBER', 'сколько последних постов показать (по умолчанию все)') { |o| options[:limit] = o } #
+  opt.on('--type POST_TYPE', 'what type of posts to show (by default any)') { |o| options[:type] = o } #
+  opt.on('--id POST_ID', 'if id is specified - show only this post in detail') { |o| options[:id] = o } #
+  opt.on('--limit NUMBER', 'how many recent posts to show (all by default)') { |o| options[:limit] = o } #
 end.parse!
 
 result = if options[:id].nil?

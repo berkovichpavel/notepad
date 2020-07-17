@@ -11,8 +11,8 @@ require_relative 'link.rb'
 require_relative 'memo.rb'
 require_relative 'task.rb'
 
-puts "Привет, я твой блокнот! Версия 2 + Sqlite"
-puts "Что хотите записать в блокнот?"
+puts "Hi, I'm your notebook! Version 2 + Sqlite"
+puts "What do you want to write in a notebook?"
 choices = Post.post_types.keys
 
 choice = -1
@@ -30,4 +30,4 @@ entry.read_from_console
 
 id = entry.save_to_db
 
-puts "Ура, запись сохранена! id = #{id}"
+puts "Hooray, the record has been saved! id = #{id}"

@@ -43,7 +43,7 @@ class Post
           to_db_hash.values
       )
     rescue SQLite3::SQLException => e
-      puts "Не удалось выполнить запрос в базе #{SQLITE_DB_FILE}"
+      puts "Failed to execute query in database #{SQLITE_DB_FILE}"
       abort e.message
     end
     
@@ -83,14 +83,14 @@ class Post
     begin
       result = db.execute('SELECT * FROM posts WHERE  row_id = ?', id)
     rescue SQLite3::SQLException => e
-      puts "Не удалось выполнить запрос в базе #{SQLITE_DB_FILE}"
+      puts "Failed to execute the query in the database #{SQLITE_DB_FILE}"
       abort e.message
     end
 
     result = result[0] if result.is_a? Array
     db.close
     if result.empty?
-      puts "Такой id #{id} не найден в базе :("
+      puts "Such id #{id} was not found in the database :("
       return nil
     else
       post = create(result['type'])
@@ -112,7 +112,7 @@ class Post
     begin
       statement = db.prepare query
     rescue SQLite3::SQLException => e
-      puts "Не удалось выполнить запрос в базе #{SQLITE_DB_FILE}"
+      puts "Failed to execute query in database #{SQLITE_DB_FILE}"
       abort e.message
     end
 

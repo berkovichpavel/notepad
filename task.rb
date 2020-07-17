@@ -7,18 +7,18 @@ class Task < Post
   end
 
   def read_from_console
-    puts "Что нужно сделать?"
+    puts "What should be done?"
     @text = STDIN.gets.chomp
 
-    puts "К какому числу? Укажите дату и время в формате ДД.ММ.ГГГГ, например 17.10.2000"
+    puts "To what date? Indicate the date and time in the DD.MM.YYYY format, for example, 10.17.2000"
     input = STDIN.gets.chomp
 
     @due_date = Date.parse(input)
   end
 
   def to_strings
-    time_string = "Создано #{@created_at.strftime("%Y-%m-%d, %H-%M-%S")} \n\n"
-    deadline = "Крайний срок: #{@due_date}"
+    time_string = "Created #{@created_at.strftime("%Y-%m-%d, %H-%M-%S")} \n\n"
+    deadline = "Deadline: #{@due_date}"
     [deadline, @text, time_string]
   end
 
